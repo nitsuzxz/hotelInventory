@@ -4,7 +4,37 @@
   <div [innerText]="numberOfRooms"></div>
 </div>
 
-<div>
+
+{{ rooms.availableRooms > 0 ? "": "No rooms" }}
+
+
+<div *ngIf="rooms.availableRooms > 0"  >
   Rooms list
+
+  <table>
+    <thead>
+      <tr>
+        <th>Index</th>
+        <th>Room Number</th>
+        <th>Room Type</th>
+        <th>Amenities</th>
+        <th>Price</th>
+        <th>Check in time</th>
+      </tr>
+    </thead>
+    <tbody>
+      <!--can use ngFor to iterate array of object. (work same as for loop) 
+      more ngfor example on https://blog.angular-university.io/angular-2-ngfor/--> 
+      <tr *ngFor="let room of roomList; let i=index">
+        <td>{{i}}</td>
+        <td>{{room.roomID}}</td>
+        <td>{{room.roomType}}</td>
+        <td>{{room.amenities}}</td>
+        <td>{{room.price}}</td>
+        <td>{{room.checkinTime}}</td>
+      </tr>
+
+    </tbody>
+  </table>
 </div>
 <button (click)="toggle()">Toggle</button>

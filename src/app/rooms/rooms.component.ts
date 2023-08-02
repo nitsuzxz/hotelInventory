@@ -13,7 +13,7 @@ export class RoomsComponent {
   hotelName= 'Hotel Nitsu'; 
   //property binding => can call variable by binding the variable to html properties
   // example <div [innerText]="numberOfRooms"></div> . Refer rooms.components.html
-  numberOfRooms=15; 
+  numberOfRooms=0; 
  
   //event binding. Refer rooms.components.html to see how the toggle button will trigger
   hideRooms= false;
@@ -28,7 +28,7 @@ export class RoomsComponent {
   rooms: Room={
 
     totalRooms: 20,
-    availableRooms: 4,
+    availableRooms: 15,
     bookedRooms: 5
 
   }

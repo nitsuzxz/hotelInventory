@@ -1,7 +1,14 @@
 <p>Welcome to {{ hotelName }}</p>
+
 <div [hidden]="hideRooms">
   Number of rooms:
-  <div [innerText]="numberOfRooms"></div>
+  <!--
+
+<div [ngStyle]="{'color': numberOfRooms > 0 ? 'green':'red'}"
+  [innerText]="numberOfRooms"></div>
+-->
+  <div [ngStyle]="{'color': rooms.availableRooms > 0 ? 'green':'red'}"
+  [innerText]="rooms.availableRooms"></div>
 </div>
 
 

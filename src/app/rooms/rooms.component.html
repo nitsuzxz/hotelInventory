@@ -23,9 +23,15 @@
       </tr>
     </thead>
     <tbody>
-      <!--can use ngFor to iterate array of object. (work same as for loop) 
-      more ngfor example on https://blog.angular-university.io/angular-2-ngfor/--> 
-      <tr *ngFor="let room of roomList; let i=index">
+      <!--
+      -can use ngFor to iterate array of object. (work same as for loop) 
+      more ngfor example on https://blog.angular-university.io/angular-2-ngfor/
+    
+      -ngclass to apply css class
+    --> 
+      <tr
+       [ngClass]="e? 'even':'odd'" 
+       *ngFor="let room of roomList; let i=index let e=even; let o=odd;" >
         <td>{{i}}</td>
         <td>{{room.roomID}}</td>
         <td>{{room.roomType}}</td>

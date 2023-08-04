@@ -39,7 +39,8 @@ export class RoomsComponent {
     price: 120,
     photoUrl:"https://images.unsplash.com/photo-1522771739844-6a9f6d5f14af?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1771&q=80",
     checkinTime:new Date('25-June-2023'),
-    checkoutTime:new Date('27-June-2023')
+    checkoutTime:new Date('27-June-2023'),
+    rating: 4
   },{
     roomID:2,
     roomType:"Studio Room",
@@ -47,7 +48,8 @@ export class RoomsComponent {
     price: 200,
     photoUrl:"https://images.unsplash.com/photo-1522771739844-6a9f6d5f14af?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1771&q=80",
     checkinTime:new Date('25-May-2023'),
-    checkoutTime:new Date('27-May-2023')
+    checkoutTime:new Date('27-May-2023'),
+    rating: 4.5
   },{
     roomID:3,
     roomType:"Suite Room",
@@ -55,7 +57,8 @@ export class RoomsComponent {
     price: 400,
     photoUrl:"https://images.unsplash.com/photo-1522771739844-6a9f6d5f14af?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1771&q=80",
     checkinTime:new Date('25-Jan-2023'),
-    checkoutTime:new Date('27-Jan-2023')
+    checkoutTime:new Date('27-Jan-2023'),
+    rating: 5
   }]
    
 }

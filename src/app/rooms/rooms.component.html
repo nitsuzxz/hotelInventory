@@ -7,15 +7,15 @@
 <div [ngStyle]="{'color': numberOfRooms > 0 ? 'green':'red'}"
   [innerText]="numberOfRooms"></div>
 -->
-  <div [ngStyle]="{'color': rooms.availableRooms > 0 ? 'green':'red'}"
-  [innerText]="rooms.availableRooms"></div>
+  <div
+    [ngStyle]="{ color: rooms.availableRooms > 0 ? 'green' : 'red' }"
+    [innerText]="rooms.availableRooms"
+  ></div>
 </div>
 
+{{ rooms.availableRooms > 0 ? "" : "No rooms" }}
 
-{{ rooms.availableRooms > 0 ? "": "No rooms" }}
-
-
-<div *ngIf="rooms.availableRooms > 0"  >
+<div *ngIf="rooms.availableRooms > 0">
   Rooms list
 
   <table>
@@ -35,18 +35,31 @@
       more ngfor example on https://blog.angular-university.io/angular-2-ngfor/
     
       -ngclass to apply css class
-    --> 
+    -->
       <tr
-       [ngClass]="e? 'even':'odd'" 
-       *ngFor="let room of roomList; let i=index let e=even; let o=odd;" >
-        <td>{{i}}</td>
-        <td>{{room.roomID}}</td>
-        <td>{{room.roomType}}</td>
-        <td>{{room.amenities}}</td>
-        <td>{{room.price}}</td>
-        <td>{{room.checkinTime}}</td>
+        [ngClass]="e ? 'even' : 'odd'"
+        *ngFor="let room of roomList ; let i = index; let e = even; let o = odd"
+      >
+        <!-- use pipe to set date format
+        refer https://angular.io/api/common/DatePipe to see more option for datepipe.
+        Other built-in pipe is:
+        UpperCase
+        Lowercase
+        Currency
+        Decimal
+        Percent
+        Json
+        slice => can be use on pagination. not suitable for large dataset
+        Async
+      -->
+        <td>{{ i }}</td>
+        <td>{{ room.roomID }}</td>
+        <td>{{ room.roomType }}</td>
+        <td>{{ room.amenities | titlecase }}</td>
+        <td>{{ room.price | currency : "MYR" : "symbol-narrow" }}</td>
+        <td>{{ room.checkinTime | date : "dd-MMM-YYYY" }}</td>
+        <td>{{room.rating | number:'1.1-1'}}</td>
       </tr>
-
     </tbody>
   </table>
 </div>

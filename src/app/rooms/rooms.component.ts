@@ -17,7 +17,7 @@ export class RoomsComponent implements OnInit {
   //event binding. Refer rooms.components.html to see how the toggle button will trigger
   hideRooms = false;
 
-  selectedRoom!:RoomList;
+  selectedRoom!: RoomList;
 
   toggle() {
     this.hideRooms = !this.hideRooms;
@@ -36,7 +36,7 @@ export class RoomsComponent implements OnInit {
   constructor() {}
 
   //implement ngOnInit
-  
+
   ngOnInit(): void {
     this.roomList = [
       {
@@ -75,8 +75,29 @@ export class RoomsComponent implements OnInit {
     ];
   }
 
-  selectRoom(room: RoomList){
-    
-    this.selectedRoom=room;
+  selectRoom(room: RoomList) {
+    this.selectedRoom = room;
+  }
+
+  addRoom() {
+    const room: RoomList = {
+      roomID: 4,
+      roomType: 'Deluxe Room',
+      amenities: 'Air Cond, TV, WiFi',
+      price: 500,
+      photoUrl:
+        'https://images.unsplash.com/photo-1522771739844-6a9f6d5f14af?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1771&q=80',
+      checkinTime: new Date('25-Jan-2023'),
+      checkoutTime: new Date('27-Jan-2023'),
+      rating: 5,
+    };
+
+    //this.roomList.push(room);  .push() modify the roomList property. we should not use this when
+    // applying changeDetection:ChangeDetectionStrategy.OnPush.
+    // when using changeDetection:ChangeDetectionStrategy.OnPush we should pass new instance
+    this.roomList = [...this.roomList, room];
+
+    //using spread operator when all elements from an object or array need to be included in a new array
+    //in this case we add the old roomlist record then add the new room record into the array
   }
 }

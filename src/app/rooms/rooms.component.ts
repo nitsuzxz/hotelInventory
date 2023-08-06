@@ -17,6 +17,8 @@ export class RoomsComponent implements OnInit {
   //event binding. Refer rooms.components.html to see how the toggle button will trigger
   hideRooms = false;
 
+  selectedRoom!:RoomList;
+
   toggle() {
     this.hideRooms = !this.hideRooms;
   }
@@ -71,5 +73,10 @@ export class RoomsComponent implements OnInit {
         rating: 5,
       },
     ];
+  }
+
+  selectRoom(room: RoomList){
+    
+    this.selectedRoom=room;
   }
 }

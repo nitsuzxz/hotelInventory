@@ -15,52 +15,11 @@
 
 {{ rooms.availableRooms > 0 ? "" : "No rooms" }}
 
-<div *ngIf="rooms.availableRooms > 0">
-  Rooms list
+<div *ngIf="selectedRoom">
 
-  <table class="table">
-    <thead>
-      <tr>
-        <th>Index</th>
-        <th>Room Number</th>
-        <th>Room Type</th>
-        <th>Amenities</th>
-        <th>Price</th>
-        <th>Check in time</th>
-      </tr>
-    </thead>
-    <tbody>
-      <!--
-      -can use ngFor to iterate array of object. (work same as for loop) 
-      more ngfor example on https://blog.angular-university.io/angular-2-ngfor/
-    
-      -ngclass to apply css class
-    -->
-      <tr
-        [ngClass]="e ? 'even' : 'odd'"
-        *ngFor="let room of roomList ; let i = index; let e = even; let o = odd"
-      >
-        <!-- use pipe to set date format
-        refer https://angular.io/api/common/DatePipe to see more option for datepipe.
-        Other built-in pipe is:
-        UpperCase
-        Lowercase
-        Currency
-        Decimal
-        Percent
-        Json
-        slice => can be use on pagination. not suitable for large dataset
-        Async
-      -->
-        <td>{{ i }}</td>
-        <td>{{ room.roomID }}</td>
-        <td>{{ room.roomType }}</td>
-        <td>{{ room.amenities | titlecase }}</td>
-        <td>{{ room.price | currency : "MYR" : "symbol-narrow" }}</td>
-        <td>{{ room.checkinTime | date : "dd-MMM-YYYY" }}</td>
-        <td>{{room.rating | number:'1.1-1'}}</td>
-      </tr>
-    </tbody>
-  </table>
+  {{selectedRoom | json}}
+</div>
+<div *ngIf="rooms.availableRooms > 0">
+  <hinv-rooms-list [rooms]="roomList" (selectedRoom)="selectRoom($event)"></hinv-rooms-list>
 </div>
 <button class="btn btn-primary" (click)="toggle()">Toggle</button>

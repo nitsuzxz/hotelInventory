@@ -1,7 +1,6 @@
-Rooms list
-
+<h2>{{ title }}</h2>
 <table class="table">
-  <thead >
+  <thead>
     <tr>
       <th>Index</th>
       <th>even/odd</th>
@@ -22,7 +21,7 @@ Rooms list
     -ngclass to apply css class dynamically
     <tr *ngFor="let room of rooms; let i = index; let e = even; let o = odd" [ngClass]="e ? 'even' : 'odd'">
   -->
-       <tr *ngFor="let room of rooms; let i = index; let e = even; let o = odd"  >
+    <tr *ngFor="let room of rooms; let i = index; let e = even; let o = odd">
       <!-- use pipe to set date format
       refer https://angular.io/api/common/DatePipe to see more option for datepipe.
       Other built-in pipe is:
@@ -36,14 +35,18 @@ Rooms list
       Async
     -->
       <td>{{ i }}</td>
-      <td>{{e? "even":"odd"}}</td>
+      <td>{{ e ? "even" : "odd" }}</td>
       <td>{{ room.roomID }}</td>
       <td>{{ room.roomType }}</td>
       <td>{{ room.amenities | titlecase }}</td>
       <td>{{ room.price | currency : "MYR" : "symbol-narrow" }}</td>
       <td>{{ room.checkinTime | date : "dd-MMM-YYYY" }}</td>
-      <td>{{room.rating | number:'1.1-1'}}</td>
-      <td><button class="btn btn-primary" (click)="selectRoom(room)">Select</button></td>
+      <td>{{ room.rating | number : "1.1-1" }}</td>
+      <td>
+        <button class="btn btn-primary" (click)="selectRoom(room)">
+          Select
+        </button>
+      </td>
     </tr>
   </tbody>
 </table>

@@ -1,4 +1,5 @@
-<p>Welcome to {{ hotelName }}</p>
+<!-- <p>Welcome to {{ hotelName }}</p> -->
+<hinv-header></hinv-header>
 
 <div [hidden]="hideRooms">
   Number of rooms:
@@ -25,6 +26,7 @@
   <hinv-rooms-list
     [rooms]="roomList"
     (selectedRoom)="selectRoom($event)"
+    [title]="title"
   ></hinv-rooms-list>
 </div>
 <button class="btn btn-primary" (click)="toggle()">Toggle</button>

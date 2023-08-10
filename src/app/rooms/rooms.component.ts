@@ -1,4 +1,12 @@
-import { Component, OnInit } from '@angular/core';
+import {
+  AfterViewChecked,
+  AfterViewInit,
+  Component,
+  DoCheck,
+  OnInit,
+  ViewChild,
+} from '@angular/core';
+import { HeaderComponent } from '../header/header.component';
 import { Room, RoomList } from './rooms';
 
 @Component({
@@ -6,7 +14,9 @@ import { Room, RoomList } from './rooms';
   templateUrl: './rooms.component.html',
   styleUrls: ['./rooms.component.css'],
 })
-export class RoomsComponent implements OnInit {
+export class RoomsComponent
+  implements OnInit, DoCheck, AfterViewInit, AfterViewChecked
+{
   //interpolation => can call variable on html file by using {{hotelName}}.
   /// refer rooms.components.html
   hotelName = 'Hotel Nitsu';
@@ -19,8 +29,10 @@ export class RoomsComponent implements OnInit {
 
   selectedRoom!: RoomList;
 
+  title = '';
   toggle() {
     this.hideRooms = !this.hideRooms;
+    this.title = 'Room List';
   }
 
   //Example built in directive
@@ -33,11 +45,27 @@ export class RoomsComponent implements OnInit {
   };
   roomList: RoomList[] = [];
 
+  ngDoCheck(): void {
+    console.log('on change called');
+  }
+
+  // static can use true when having async code @ViewChild(HeaderComponent, { static: true })
+  @ViewChild(HeaderComponent) headerComponent!: HeaderComponent;
+
   constructor() {}
 
-  //implement ngOnInit
+  ngAfterViewChecked() {}
 
+  //use ngAfterview if using viewchild static is default (false)
+  ngAfterViewInit(): void {
+    // console.log(this.headerComponent);
+    this.headerComponent.title = 'Room View';
+  }
+  //implement ngOnInit
   ngOnInit(): void {
+    //this.headercomponent can only be called when static is set to true at the viewchild
+    //console.log(this.headerComponent);
+
     this.roomList = [
       {
         roomID: 1,

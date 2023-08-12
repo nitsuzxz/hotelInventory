@@ -1,13 +1,17 @@
 <!-- <p>Welcome to {{ hotelName }}</p> -->
 <hinv-header></hinv-header>
+<hinv-header></hinv-header>
+<hinv-header></hinv-header>
+<hinv-header></hinv-header>
 
 <div [hidden]="hideRooms">
   Number of rooms:
-  <!--
 
-<div [ngStyle]="{'color': numberOfRooms > 0 ? 'green':'red'}"
-  [innerText]="numberOfRooms"></div>
--->
+  <div
+    [ngStyle]="{ color: numberOfRooms > 0 ? 'green' : 'red' }"
+    [innerText]="numberOfRooms"
+  ></div>
+
   <div
     [ngStyle]="{ color: rooms.availableRooms > 0 ? 'green' : 'red' }"
     [innerText]="rooms.availableRooms"

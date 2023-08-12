@@ -1,4 +1,4 @@
-<h1>Helloo</h1>
+<div #name></div>
 <hinv-rooms></hinv-rooms>
 
 <!-- Implementinh ngSwitch-->
@@ -9,4 +9,19 @@
     <hinv-rooms></hinv-rooms>
   </div>
   <div *ngSwitchDefault>You are not authorize to view this page! </div>
+</div> -->
+
+<!-- <div>
+  
+
+    ng-template is angular directivce that defines a template  block that wont
+    be render directly in the DOM when the page load. Instead, its used a placeholder
+    that can be conditionally rendered or instantiated by other angular mechanisms.
+
+    # known as template reference (in this case we declare #user for our template reference in
+    @ViewChild('user', { read: ViewContainerRef }) vcr!: ViewContainerRef;)
+
+    In this way we can dynamically load the component
+ 
+  <ng-template #user></ng-template>
 </div> -->

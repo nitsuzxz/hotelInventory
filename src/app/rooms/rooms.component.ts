@@ -4,7 +4,9 @@ import {
   Component,
   DoCheck,
   OnInit,
+  QueryList,
   ViewChild,
+  ViewChildren,
 } from '@angular/core';
 import { HeaderComponent } from '../header/header.component';
 import { Room, RoomList } from './rooms';
@@ -49,9 +51,14 @@ export class RoomsComponent
     console.log('on change called');
   }
 
-  // static can use true when having async code @ViewChild(HeaderComponent, { static: true })
+  //viewchild property will always access the intance that available
+  // on the template
+  // static cannot use true when having async code @ViewChild(HeaderComponent, { static: true })
   @ViewChild(HeaderComponent) headerComponent!: HeaderComponent;
 
+  //viewchildren can't available on OnInit
+  @ViewChildren(HeaderComponent)
+  headerchildrenComponent!: QueryList<HeaderComponent>;
   constructor() {}
 
   ngAfterViewChecked() {}

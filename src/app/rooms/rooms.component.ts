@@ -67,6 +67,8 @@ export class RoomsComponent
   ngAfterViewInit(): void {
     // console.log(this.headerComponent);
     this.headerComponent.title = 'Room View';
+    this.headerchildrenComponent.last.title = 'hehee';
+    // this.headerchildrenComponent.get(1)?.title use get() to access by index
   }
   //implement ngOnInit
   ngOnInit(): void {
